@@ -22,8 +22,6 @@ def save(request):
         img =  np.array(picture)
         saver.saveImage(id, img)
         return HttpResponse(status=200)
-        #return HttpResponse(str(matcher.findPicture(request.GET.get('path'))))
-
 
 @csrf_exempt
 def match(request):

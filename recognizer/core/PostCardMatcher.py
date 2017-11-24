@@ -7,7 +7,6 @@ class PostCardMatcher:
     features = {}
 
     def __init__(self):
-        print("INIT!!!")
         self.reloadFeatures()
 
     def reloadFeatures(self):
