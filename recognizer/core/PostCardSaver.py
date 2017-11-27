@@ -67,7 +67,7 @@ class PostCardSaver:
                 break
 
         warped = self.four_point_transform(orig, screenCnt.reshape(4, 2) * ratio)
-        warped = imutils.resize(warped, height=500)
+        warped = imutils.resize(warped, height=250)
 
         cv2.imwrite("Output/" + str(id) + ".jpg", warped)
         des = h.extractFeatures(warped)
