@@ -21,6 +21,7 @@ def save(request):
         picture = PIL.Image.open(picture_stream)
         img =  np.array(picture)
         saver.saveImage(id, img)
+        matcher.reloadFeatures()
         return HttpResponse(status=200)
 
 @csrf_exempt
