@@ -2,7 +2,8 @@
 ##  1.1 Docker
  1. Navigate to the root directory of the project.
  2. Build the docker container with  `docker build -t postcardrecognizer .`
- 3. Start the docker container with  `docker start <<name of the docker container>>`
+ 3. Run the docker container with `docker run -it -p 8000:8000 --name postcardrecognizer postcardrecognizer`
+ 4. Start the docker container with  `docker start postcardrecognizer`
 ## 1.2 Python
  1. Install Python 3.6
  2. Navigate to the root directory of the project.

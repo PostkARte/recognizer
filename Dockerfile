@@ -14,4 +14,6 @@ RUN mkdir Output
 
 RUN pip install -r requirements.txt
 
+RUN chmod +x /code/start.sh
+
 CMD ["/code/start.sh"]

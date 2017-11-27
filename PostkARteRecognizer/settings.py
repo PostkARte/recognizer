@@ -25,7 +25,10 @@ SECRET_KEY = 'z0i5f&u++_9)%e!hv6807i90+=y7@kd=yit2fx$t5ld^9otwl-'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'localhost',
+    'docker.for.mac.localhost'
+]
 
 
 # Application definition
