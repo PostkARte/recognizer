@@ -7,12 +7,8 @@ FLANN = None
 
 
 def extractFeatures(live_picture):
-    print(live_picture)
-    print("e1")
-    sift = cv2.xfeatures2d.SIFT_create()
-    print("e2")
-    kp2, des2 = sift.detectAndCompute(live_picture, None)
-    print("e3")
+    surf = cv2.xfeatures2d.SURF_create()
+    kp2, des2 = surf.detectAndCompute(live_picture, None)
     return des2
 
 

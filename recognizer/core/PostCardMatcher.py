@@ -14,13 +14,9 @@ class PostCardMatcher:
         features = h.loadAllFeatures()
 
     def findPicture(self, live_picture):
-        print('1')
         picture = imutils.resize(live_picture, height=500)
-        print('2')
         desLive = h.extractFeatures(picture)
-        print('3')
         flann = h.getFlannMatcher()
-        print('4')
         return self.findBestMatch(desLive, flann)
 
     def findBestMatch(self, desLive, flann):
@@ -38,5 +34,4 @@ class PostCardMatcher:
             if (bestMatch < goodMatches):
                 bestIndex = id
                 bestMatch = goodMatches
-        print('5')
         return bestIndex
