@@ -31,7 +31,7 @@ class PostCardMatcher:
                 if m.distance < 0.7 * n.distance:
                     goodMatches += 1
 
-            if (bestMatch < goodMatches):
+            if (goodMatches > 20 and bestMatch < goodMatches):
                 bestIndex = id
                 bestMatch = goodMatches
         return bestIndex
