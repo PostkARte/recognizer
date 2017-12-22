@@ -4,14 +4,6 @@ import recognizer.core.helper as h
 import sys
 
 class PostCardMatcher:
-    features = {}
-
-    def __init__(self):
-        self.reloadFeatures()
-
-    def reloadFeatures(self):
-        global features
-        features = h.loadAllFeatures()
 
     def findPicture(self, live_picture):
         picture = imutils.resize(live_picture, height=500)
@@ -24,8 +16,10 @@ class PostCardMatcher:
         bestIndex = 0;
         bestMatch = 0;
 
-        for id, feature in features.items():
+        for featureName in h.loadFeatureNames():
+            feature = h.loadFeature(featureName)
             matches = flann.knnMatch(feature, desLive, k=2)
+
             goodMatches = 0;
             for i, (m, n) in enumerate(matches):
                 if m.distance < 0.7 * n.distance:

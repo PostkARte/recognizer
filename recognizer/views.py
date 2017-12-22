@@ -7,6 +7,8 @@ import numpy as np
 
 import io
 import PIL
+import os
+from  django.shortcuts import render_to_response
 
 saver = s.PostCardSaver()
 matcher = m.PostCardMatcher()
@@ -19,9 +21,10 @@ def save(request):
 
         picture_stream = io.BytesIO(file.read())
         picture = PIL.Image.open(picture_stream)
-        img =  np.array(picture)
-        saver.saveImage(id, img)
-        matcher.reloadFeatures()
+        open_cv_image = np.array(picture)
+        # Convert RGB to BGR
+        open_cv_image = open_cv_image[:, :, ::-1].copy()
+        saver.saveImage(id, open_cv_image)
         return HttpResponse(status=200)
 
 @csrf_exempt
@@ -34,3 +37,14 @@ def match(request):
         img =  np.array(picture)
         return HttpResponse(str(matcher.findPicture(img)))
 
+@csrf_exempt
+def postcards(request):
+    if request.method == 'GET':
+        path="Output/"
+        img_list = os.listdir(path)
+        return render_to_response('gallery.html', {'images': img_list})
+
+@csrf_exempt
+def postcard(request, postcard):
+    if request.method == 'GET':
+        return render_to_response('postcard.html', {'image':postcard})

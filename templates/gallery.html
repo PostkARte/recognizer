@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% for image in images %}
+    <a href='/recognizer/postcards/{{image}}'>{{image}}</a><br>
+{% endfor %}
+</body>
+</html>
