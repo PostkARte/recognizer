@@ -5,7 +5,12 @@
     <title>Title</title>
 </head>
 <body>
-{% for image in images %}
+{% for image in postcards %}
+    <a href='/output/{{image}}'>{{image}}</a><br>
+{% endfor %}
+<br>
+<br>
+{% for image in contours %}
     <a href='/output/{{image}}'>{{image}}</a><br>
 {% endfor %}
 </body>

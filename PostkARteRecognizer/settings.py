@@ -125,6 +125,7 @@ STATIC_URL = '/output/'
 
 STATICFILES_DIRS = (
     "Output",
+    "Contours"
 )
 
 DATA_UPLOAD_MAX_MEMORY_SIZE = 10000000
