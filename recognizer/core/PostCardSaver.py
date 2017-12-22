@@ -48,7 +48,6 @@ class PostCardSaver:
 
         ratio = image.shape[0] / 500.0
         orig = image.copy()
-        cv2.imwrite("Output/orig2" + str(id) + ".jpg", orig)
         image = imutils.resize(image, height=500)
 
         gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
