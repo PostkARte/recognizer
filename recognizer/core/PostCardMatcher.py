@@ -17,17 +17,20 @@ class PostCardMatcher:
         bestMatch = 0;
 
         for featureName in h.loadFeatureNames():
-            feature = h.loadFeature(featureName)
-            matches = flann.knnMatch(feature, desLive, k=2)
+            try:
+                feature = h.loadFeature(featureName)
+                matches = flann.knnMatch(feature, desLive, k=2)
 
-            goodMatches = 0;
-            for i, (m, n) in enumerate(matches):
-                if m.distance < 0.7 * n.distance:
-                    goodMatches += 1
+                goodMatches = 0;
+                for i, (m, n) in enumerate(matches):
+                    if m.distance < 0.7 * n.distance:
+                        goodMatches += 1
 
-            if (goodMatches > 20 and bestMatch < goodMatches):
-                bestIndex = h.splitFeaturename(featureName)
-                bestMatch = goodMatches
+                if (goodMatches > 20 and bestMatch < goodMatches):
+                    bestIndex = h.splitFeaturename(featureName)
+                    bestMatch = goodMatches
+            except Exception as e:
+                print("A feature seems to be corrupt: " + featureName);
 
 
         return bestIndex
