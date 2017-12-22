@@ -23,13 +23,16 @@ def getFlannMatcher():
 
 
 def loadFeature(number):
-    return np.load(FEATURE_FOLDER + "/" + str(number) + ".npy")
+    return np.load(FEATURE_FOLDER + "/" + str(number))
 
 def loadFeatureNames():
-    features = {}
     featureNames = [f for f in os.listdir(FEATURE_FOLDER) if os.path.isfile(os.path.join(FEATURE_FOLDER, f))]
     return featureNames
 
 def getFeatureCount():
     return len([f for f in os.listdir(FEATURE_FOLDER)
                 if os.path.isfile(os.path.join(FEATURE_FOLDER, f))]) + 1
+
+def splitFeaturename(featureFileName):
+    print(featureFileName)
+    return os.path.splitext(featureFileName)[0]

@@ -26,6 +26,8 @@ class PostCardMatcher:
                     goodMatches += 1
 
             if (goodMatches > 20 and bestMatch < goodMatches):
-                bestIndex = id
+                bestIndex = h.splitFeaturename(featureName)
                 bestMatch = goodMatches
+
+
         return bestIndex
