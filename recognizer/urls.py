@@ -5,6 +5,5 @@ from . import views
 urlpatterns = [
     url(r'^save/$', views.save, name='save'),
     url(r'^match/$', views.match, name='match'),
-    url(r'^postcards/$', views.postcards, name='postcards'),
-    url(r'postcards/([\w.]+)', views.postcard, name='postcard')
+    url(r'^postcards/$', views.postcards, name='postcards')
 ]

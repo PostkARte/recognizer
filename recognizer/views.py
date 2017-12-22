@@ -43,8 +43,3 @@ def postcards(request):
         path="Output/"
         img_list = os.listdir(path)
         return render_to_response('gallery.html', {'images': img_list})
-
-@csrf_exempt
-def postcard(request, postcard):
-    if request.method == 'GET':
-        return render_to_response('postcard.html', {'image':postcard})
