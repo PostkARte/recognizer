@@ -26,6 +26,7 @@ SECRET_KEY = 'z0i5f&u++_9)%e!hv6807i90+=y7@kd=yit2fx$t5ld^9otwl-'
 DEBUG = True
 
 ALLOWED_HOSTS = [
+    '35.196.236.27',
     'localhost',
     'docker.for.mac.localhost'
 ]
